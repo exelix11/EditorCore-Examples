@@ -21,15 +21,7 @@ namespace MK8DExt
 
 		public bool HasGameModule => true;
 		MK8DModule _module = null;
-		public IGameModule GameModule
-		{
-			get
-			{
-				if (_module == null) _module = new MK8DModule();
-				return _module;
-			}
-		}
-
+		public IGameModule GetNewGameModule() => new MK8DModule();
 		public IFileHander[] Handlers => null;
 
 		public void CheckForUpdates()
