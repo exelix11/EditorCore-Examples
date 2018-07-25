@@ -38,7 +38,7 @@ namespace MK8DExt
 		public bool IsAddListSupported => false;
 		public bool IsPropertyEditingSupported => false;
 		
-		public EditorForm ViewForm { get; set; }
+		public IEditorFormContext ViewForm { get; set; }
 		public string[] AutoHideList => new string[0];
 
 		public string AddObjList(ILevel level)
@@ -93,7 +93,7 @@ namespace MK8DExt
 			return null;
 		}
 
-		public void InitModule(EditorForm currentView)
+		public void InitModule(IEditorFormContext currentView)
 		{
 			ViewForm = currentView;
 		}
@@ -119,7 +119,7 @@ namespace MK8DExt
 
 			if (stageModelPath != null)
 			{
-				StageDummyModel = new LevelObj(true,false);
+				StageDummyModel = new LevelObj(true,true);
 				ViewForm.AddModelObj(stageModelPath, StageDummyModel,
 					new System.Windows.Media.Media3D.Vector3D(),
 					new System.Windows.Media.Media3D.Vector3D(1, 1, 1),
@@ -155,6 +155,7 @@ namespace MK8DExt
 			if (sav.ShowDialog() != DialogResult.OK) return;
 			File.WriteAllBytes(sav.FileName, ((Level)level).Save(sav.FileName));
 		}
-		
+
+		public Tuple<string, dynamic> GetNewProperty(dynamic target) => null;
 	}
 }

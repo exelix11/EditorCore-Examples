@@ -18,7 +18,7 @@ namespace MK8DExt
     public class LevelObj : ILevelObj
     {
 		[Browsable(false)]
-		public bool CanDrag { get; set; } = true;
+		public bool NotLevel { get; set; } = false;
 
 		public const string N_Translate = "Translate";
         public const string N_Rotate = "Rotate";
@@ -37,9 +37,9 @@ namespace MK8DExt
             else throw new Exception("Not a dictionary");
         }
 
-        public LevelObj(bool empty = false, bool _CanDrag = true)
+        public LevelObj(bool empty = false, bool _NotLevel = false)
         {
-			CanDrag = _CanDrag;
+			NotLevel = _NotLevel;
 			if (empty) return;
             Prop.Add(N_Translate, new Dictionary<string, dynamic>());
             Prop[N_Translate].Add("X", (Single)0);

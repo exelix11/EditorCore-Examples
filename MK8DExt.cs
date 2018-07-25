@@ -20,7 +20,6 @@ namespace MK8DExt
 		public IClipboardExtension ClipboardExt => null;
 
 		public bool HasGameModule => true;
-		MK8DModule _module = null;
 		public IGameModule GetNewGameModule() => new MK8DModule();
 		public IFileHander[] Handlers => null;
 
