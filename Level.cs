@@ -38,6 +38,16 @@ namespace MK8DExt
 
 		public bool IsHidden { get; set; } = false;
 		public string name { get; set; } = "";
+		public bool ReadOnly => false;
+	}
+
+	class FakeObjList : List<ILevelObj>, IObjList
+	{
+		public bool IsHidden { get; set; } = false;
+		public bool ReadOnly => true;
+		public string name { get; set; } = "";
+
+		public void ApplyChanges() { }
 	}
 
 	class Level : ILevel
@@ -66,6 +76,7 @@ namespace MK8DExt
 			LoadedLevelData = rootNode;
 			defList = new ObjList(N_DEFLIST, rootNode[N_OBJSNODE]);
 			objs.Add(N_DEFLIST, defList);
+			objs.Add("StageModel - Can't edit", new FakeObjList());
 		}
 
 		public bool HasList(string name) => name == N_DEFLIST;

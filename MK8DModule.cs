@@ -119,11 +119,10 @@ namespace MK8DExt
 
 			if (stageModelPath != null)
 			{
-				StageDummyModel = new LevelObj(true,true);
-				ViewForm.AddModelObj(stageModelPath, StageDummyModel,
-					new System.Windows.Media.Media3D.Vector3D(),
-					new System.Windows.Media.Media3D.Vector3D(1, 1, 1),
-					new System.Windows.Media.Media3D.Vector3D());
+				StageDummyModel = new LevelObj(false,true);
+				StageDummyModel.ModelName = $"{stageName}_stage";
+				StageDummyModel.Scale = new System.Windows.Media.Media3D.Vector3D(1, 1, 1);
+				res.objs["StageModel - Can't edit"].Add(StageDummyModel);
 			}
 
 			GC.Collect();
@@ -137,7 +136,19 @@ namespace MK8DExt
 			return null;
 		}
 
-		public ILevelObj NewObject() => new LevelObj();
+		public ILevelObj NewObject()
+		{
+			if (ViewForm.CurList is FakeObjList)
+			{
+				MessageBox.Show("This list is just for showing the stage model, you can't add objects here");
+				return null;
+			}
+			string res = null;
+			if (ComboBoxDialog.Show("Add object", "Select the object name", ref res, ObjIDNameList.Values.ToArray()) != DialogResult.OK) return null;
+			var o = new LevelObj();
+			o.Name = res;
+			return o;
+		}
 
 		public bool OpenLevelFile(string name, Stream file) => false;
 
