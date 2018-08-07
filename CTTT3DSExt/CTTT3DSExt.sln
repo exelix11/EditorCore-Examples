@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTTT3DSExt", "CTTT3DSExt\CTTT3DSExt.csproj", "{BAF2D105-4DBD-4427-8573-7B634579FA71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAF2D105-4DBD-4427-8573-7B634579FA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF2D105-4DBD-4427-8573-7B634579FA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF2D105-4DBD-4427-8573-7B634579FA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF2D105-4DBD-4427-8573-7B634579FA71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BC85C23-9321-463E-9CE7-F4B6107BB2ED}
+	EndGlobalSection
+EndGlobal
