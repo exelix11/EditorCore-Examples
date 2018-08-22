@@ -34,8 +34,7 @@
       <HintPath>..\built\ByamlExt.dll</HintPath>
     </Reference>
     <Reference Include="EditorCoreCommon">
-      <HintPath>..\built\EditorCoreCommon.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\EditorCore\EditorCore\bin\Debug\EditorCoreCommon.dll</HintPath>
     </Reference>
     <Reference Include="Ohana3DS Rebirth">
       <HintPath>..\built\Ohana3DS Rebirth.exe</HintPath>

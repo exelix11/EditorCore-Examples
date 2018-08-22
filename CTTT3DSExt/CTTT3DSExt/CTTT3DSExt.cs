@@ -12,7 +12,7 @@ namespace CTTT3DSExt
 	{
 		public string ModuleName => "Captain Toad Treasure Tracker EXT";
 		public string Author => "Exelix11";
-		public string ThanksTo => "";
+		public string ExtraText => null;
 
 		public Version TargetVersion => new Version(1, 0, 0, 0);
 		

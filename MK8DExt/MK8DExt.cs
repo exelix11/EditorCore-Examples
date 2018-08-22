@@ -11,7 +11,7 @@ namespace MK8DExt
 	{
 		public string ModuleName => "MK8DExt";
 		public string Author => "Exelix11";
-		public string ThanksTo => "KillzXGaming for the C# BFRES loader\r\ngdkchan for Bntxx";
+		public string ExtraText => "Thanks to:\r\n KillzXGaming for the C# BFRES loader\r\ngdkchan for Bntxx";
 
 		public Version TargetVersion => new Version(1, 0, 0, 0);
 

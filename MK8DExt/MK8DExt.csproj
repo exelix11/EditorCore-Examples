@@ -51,20 +51,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EditorCore\EditorCoreCommon\EditorCoreCommon.csproj">
-      <Project>{EE9882D0-F7A7-45E1-971A-1527B7E399F5}</Project>
+    <ProjectReference Include="..\..\..\EditorCore\EditorCoreCommon\EditorCoreCommon.csproj">
+      <Project>{ee9882d0-f7a7-45e1-971a-1527b7e399f5}</Project>
       <Name>EditorCoreCommon</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\EditorCore\FileFormatPlugins\BfresLib\BfresLib.csproj">
+    <ProjectReference Include="..\..\..\EditorCore\FileFormatPlugins\BfresLib\BfresLib.csproj">
       <Project>{9313d751-0d97-4621-b6e2-783e6986a118}</Project>
       <Name>BfresLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EditorCore\FileFormatPlugins\ByamlLib\ByamlExt.csproj">
+    <ProjectReference Include="..\..\..\EditorCore\FileFormatPlugins\ByamlLib\ByamlExt.csproj">
       <Project>{6d1801b8-7b24-49d6-83a1-e21ccc280d8e}</Project>
       <Name>ByamlExt</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EditorCore\FileFormatPlugins\SARCLib\SARCExt.csproj">
+    <ProjectReference Include="..\..\..\EditorCore\FileFormatPlugins\SARCLib\SARCExt.csproj">
       <Project>{9c220305-e452-4db0-9f99-186640268b4f}</Project>
       <Name>SARCExt</Name>
     </ProjectReference>
