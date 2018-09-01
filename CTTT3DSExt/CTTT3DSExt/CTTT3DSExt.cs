@@ -17,9 +17,7 @@ namespace CTTT3DSExt
 		public Version TargetVersion => new Version(1, 0, 0, 0);
 		
 		public IMenuExtension MenuExt => null;
-
-		public IClipboardExtension ClipboardExt => null;
-
+		
 		public bool HasGameModule => true;
 
 		public IFileHander[] Handlers => null;
