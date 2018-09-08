@@ -16,9 +16,7 @@ namespace MK8DExt
 		public Version TargetVersion => new Version(1, 0, 0, 0);
 
 		public IMenuExtension MenuExt => null;
-
-		public IClipboardExtension ClipboardExt => null;
-
+		
 		public bool HasGameModule => true;
 		public IGameModule GetNewGameModule() => new MK8DModule();
 		public IFileHander[] Handlers => null;

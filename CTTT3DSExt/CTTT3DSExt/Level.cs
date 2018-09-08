@@ -57,6 +57,11 @@ namespace CTTT3DSExt
 		public int HighestID { get => _HighestID; set => _HighestID = value; }
 		public static int _HighestID = 0;
 
+		ushort version;
+		BymlFileData makeBymlData(dynamic root) =>
+			new BymlFileData { Version = version, byteOrder = Syroot.BinaryData.ByteOrder.LittleEndian, SupportPaths = false, RootNode = root };
+
+
 		string GetName
 		{
 			get
@@ -77,7 +82,7 @@ namespace CTTT3DSExt
 			
 			((Dictionary<string, dynamic>)LoadedLevelData).Add("FilePath", "d:/customLevel.muunt"); //probably not needed
 
-			LevelFiles.Add(GetName + ".byml", ByamlFile.Save(LoadedLevelData,false, Syroot.BinaryData.ByteOrder.LittleEndian));
+			LevelFiles.Add(GetName + ".byml", ByamlFile.SaveN(makeBymlData(LoadedLevelData)));
 			LoadByml();
         }
 
@@ -96,7 +101,9 @@ namespace CTTT3DSExt
 		void LoadByml()
 		{
 			Stream s = new MemoryStream(LevelFiles[GetName + ".byml"]);
-			LoadedLevelData = ByamlFile.Load(s, false, Syroot.BinaryData.ByteOrder.LittleEndian);
+			var byml = ByamlFile.LoadN(s);
+			LoadedLevelData = byml.RootNode;
+			version = byml.Version;
 
 			LoadObjects();
 		}
@@ -134,7 +141,7 @@ namespace CTTT3DSExt
         {
             ApplyChangesToByml();
             MemoryStream mem = new MemoryStream();
-            ByamlFile.Save(mem, LoadedLevelData, false, Syroot.BinaryData.ByteOrder.LittleEndian);
+            ByamlFile.SaveN(mem, makeBymlData(LoadedLevelData));
             var res = mem.ToArray();
             return res;
         }

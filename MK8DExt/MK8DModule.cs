@@ -68,7 +68,7 @@ namespace MK8DExt
 			else
 			{
 				ObjIDNameList.Clear();
-				var byml = ByamlFile.Load($"{GameFolder}Data/Objflow.byaml", true);
+				var byml = ByamlFile.LoadN($"{GameFolder}Data/Objflow.byaml", true).RootNode;
 				foreach (var item in byml)
 				{
 					int ID = item["ObjId"];

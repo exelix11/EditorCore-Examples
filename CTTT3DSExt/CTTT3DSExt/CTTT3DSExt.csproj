@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ByamlExt">
-      <HintPath>..\built\ByamlExt.dll</HintPath>
+      <HintPath>..\..\..\..\EditorCore\EditorCore\bin\Debug\Ext\ByamlExt.dll</HintPath>
     </Reference>
     <Reference Include="EditorCoreCommon">
       <HintPath>..\..\..\..\EditorCore\EditorCore\bin\Debug\EditorCoreCommon.dll</HintPath>

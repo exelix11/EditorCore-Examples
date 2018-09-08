@@ -65,10 +65,16 @@ namespace MK8DExt
 		private IObjList defList = null;
 		public IObjList FindListByObj(ILevelObj o) => defList;
 
+		ushort bymlVer = 0;
+		BymlFileData makeByml(dynamic root) =>
+			new BymlFileData { Version = bymlVer, byteOrder = Syroot.BinaryData.ByteOrder.LittleEndian, SupportPaths = true, RootNode = root };
+
 		public Level(string path, int scenarioIndex = -1)
 		{
 			FilePath = path;
-			LoadByml(ByamlFile.Load(path,true, Syroot.BinaryData.ByteOrder.LittleEndian));
+			var baseByml = ByamlFile.LoadN(path);
+			bymlVer = baseByml.Version;
+			LoadByml(baseByml.RootNode);
 		}
 
 		void LoadByml(dynamic rootNode)
@@ -89,7 +95,7 @@ namespace MK8DExt
 			}
 			defList.ApplyChanges();
 			MemoryStream mem = new MemoryStream();
-			ByamlFile.Save(mem, LoadedLevelData, true, Syroot.BinaryData.ByteOrder.LittleEndian);
+			ByamlFile.SaveN(mem, makeByml(LoadedLevelData));
 			return mem.ToArray();
 		}
 	}
