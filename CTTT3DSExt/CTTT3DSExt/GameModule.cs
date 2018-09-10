@@ -5,7 +5,7 @@ using EditorCore.EditorFroms;
 using EditorCore.Interfaces;
 using EveryFileExplorer;
 using SARCExt;
-using Syroot.NintenTools.Byaml.Dynamic;
+using ByamlExt.Byaml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

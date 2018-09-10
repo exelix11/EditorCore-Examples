@@ -1,5 +1,5 @@
 ﻿using EditorCore.Interfaces;
-using Syroot.NintenTools.Byaml.Dynamic;
+using ByamlExt.Byaml;
 using System;
 using System.Collections.Generic;
 using System.IO;
