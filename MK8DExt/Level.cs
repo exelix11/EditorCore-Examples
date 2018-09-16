@@ -72,7 +72,7 @@ namespace MK8DExt
 		public Level(string path, int scenarioIndex = -1)
 		{
 			FilePath = path;
-			var baseByml = ByamlFile.LoadN(path);
+			var baseByml = ByamlFile.LoadN(path,true);
 			bymlVer = baseByml.Version;
 			LoadByml(baseByml.RootNode);
 		}

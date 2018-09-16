@@ -81,7 +81,7 @@ namespace MK8DExt
 			}
 		}
 
-		public bool ConvertModelFile(string ObjName, string path) => BfresConverter.Convert(FindBfres(ObjName), path);
+		public bool ConvertModelFile(string ObjName, string path) => BfresConverter.Convert(FindBfres(ObjName), path) != null;
 		public string GetPlaceholderModel(string ObjName, string ListName) => "UnkBlue.obj";
 
 		byte[] FindBfres(string objname)
@@ -111,16 +111,16 @@ namespace MK8DExt
 			var res = new Level(file);
 
 			string stageName = new DirectoryInfo(file).Parent.Name;
-			string stageModelPath = $"{ModelsFolder}\\{stageName}_stage.obj";
+			string stageModelPath = $"{ModelsFolder}\\{stageName}.obj";
 			if (!File.Exists(stageModelPath)) {
 				byte[] CourseBfres = YAZ0.Decompress(Path.GetDirectoryName(file) + "\\course_model.szs");
-				if (!BfresConverter.Convert(CourseBfres, stageModelPath)) stageModelPath = null;
+				if (BfresConverter.Convert(CourseBfres, ModelsFolder) == null) stageModelPath = null;
 			}
 
 			if (stageModelPath != null)
 			{
 				StageDummyModel = new LevelObj(false,true);
-				StageDummyModel.ModelName = $"{stageName}_stage";
+				StageDummyModel.ModelName = $"{stageName}";
 				StageDummyModel.Scale = new System.Windows.Media.Media3D.Vector3D(1, 1, 1);
 				res.objs["StageModel - Can't edit"].Add(StageDummyModel);
 			}
